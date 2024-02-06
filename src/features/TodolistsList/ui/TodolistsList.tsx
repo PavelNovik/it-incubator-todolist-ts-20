@@ -27,33 +27,6 @@ export const TodolistsList = () => {
     fetchTodolists();
   }, []);
 
-  // const removeTask = useCallback(function(taskId: string, todolistId: string) {
-  //   removeTaskThunk({ taskId, todolistId });
-  // }, []);
-
-  // const addTask = useCallback(function(title: string, todolistId: string) {
-  //   addTaskThunk({ title, todolistId });
-  // }, []);
-
-  // const changeStatus = useCallback(function (taskId: string, status: TaskStatuses, todolistId: string) {
-  //   updateTask({ taskId, domainModel: { status }, todolistId });
-  // }, []);
-  //
-  // const changeTaskTitle = useCallback(function (taskId: string, title: string, todolistId: string) {
-  //   updateTask({ taskId, domainModel: { title }, todolistId });
-  // }, []);
-
-  // const changeFilter = useCallback(function(filter: FilterValuesType, id: string) {
-  //   changeTodolistFilter({ id, filter });
-  // }, []);
-  //
-  // const removeTodolist = useCallback(function(id: string) {
-  //   removeTodolistThunk(id);
-  // }, []);
-  //
-  // const changeTodolistTitle = useCallback(function(id: string, title: string) {
-  //   changeTodolistTitleThunk({ id, title });
-  // }, []);
 
   const addTodolist = useCallback((title: string) => {
     addTodolistThunk(title);
