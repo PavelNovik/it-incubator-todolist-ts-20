@@ -5,7 +5,7 @@ import { BaseResponseType } from "common/types";
 
 export const thunkTryCatch = async <T>(
   thunkAPI: BaseThunkAPI<AppRootStateType, unknown, AppDispatch, null | BaseResponseType>,
-  logic: () => Promise<T>,
+  logic: () => Promise<T>
 ): Promise<T | ReturnType<typeof thunkAPI.rejectWithValue>> => {
   const { dispatch, rejectWithValue } = thunkAPI;
   try {
@@ -14,6 +14,5 @@ export const thunkTryCatch = async <T>(
     handleServerNetworkError(e, dispatch);
     return rejectWithValue(null);
   } finally {
-    // dispatch(appActions.setAppStatus({ status: "idle" }));
   }
 };
