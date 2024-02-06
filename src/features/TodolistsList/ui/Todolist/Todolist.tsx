@@ -22,7 +22,7 @@ export const Todolist = React.memo(function({ todolist, tasks }: Props) {
 
   const addTaskCb =
     (title: string) => {
-      addTask({ title, todolistId: todolist.id });
+     return  addTask({ title, todolistId: todolist.id }).unwrap();
     };
 
   return (
