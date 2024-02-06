@@ -6,15 +6,23 @@ import { Button, Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel, 
 import { useActions } from "common/hooks";
 import { selectIsLoggedIn } from "features/auth/model/auth.selectors";
 import { authThunks } from "features/auth/model/auth.slice";
-import { LoginParamsType } from "features/auth/api/auth.api";
 import { BaseResponseType } from "common/types";
 import s from "features/auth/ui/login/login.module.css";
 
-type FormikErrorType = {
-  email?: string;
-  password?: string;
-  rememberMe?: boolean;
+// type FormikErrorType = {
+//   email?: string;
+//   password?: string;
+//   rememberMe?: boolean;
+// };
+
+export type LoginParamsType = {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+  captcha?: string;
 };
+
+type FormikErrorType = Partial<Omit<LoginParamsType, 'captcha'>>
 
 export const Login = () => {
   const { login } = useActions(authThunks);

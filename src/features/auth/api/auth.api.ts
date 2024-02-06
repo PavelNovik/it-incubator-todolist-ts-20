@@ -1,5 +1,6 @@
 import { instance } from "common/api/common.api";
 import { BaseResponseType } from "common/types/common.types";
+import { LoginParamsType } from "../ui/login/login";
 
 export const authAPI = {
   login(data: LoginParamsType) {
@@ -13,9 +14,4 @@ export const authAPI = {
   },
 };
 
-export type LoginParamsType = {
-  email: string;
-  password: string;
-  rememberMe: boolean;
-  captcha?: string;
-};
+

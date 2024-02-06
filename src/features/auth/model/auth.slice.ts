@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { appActions } from "app/app.reducer";
-import { authAPI, LoginParamsType } from "features/auth/api/auth.api";
+import { authAPI } from "features/auth/api/auth.api";
 import { clearTasksAndTodolists } from "common/actions";
-import { createAppAsyncThunk, handleServerAppError, handleServerNetworkError, thunkTryCatch } from "common/utils";
+import { createAppAsyncThunk, handleServerAppError, thunkTryCatch } from "common/utils";
 import { ResultCode } from "common/enums";
+import { LoginParamsType } from "../ui/login/login";
 
 const login = createAppAsyncThunk<{ isLoggedIn: boolean }, LoginParamsType>("auth/login", async (arg, thunkAPI) => {
   const { dispatch, rejectWithValue } = thunkAPI;
@@ -50,7 +51,7 @@ const initializeApp = createAppAsyncThunk<{ isLoggedIn: boolean }, void>("app/in
 const slice = createSlice({
   name: "auth",
   initialState: {
-    isLoggedIn: false,
+    isLoggedIn: false
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -64,7 +65,7 @@ const slice = createSlice({
       .addCase(initializeApp.fulfilled, (state, action) => {
         state.isLoggedIn = action.payload.isLoggedIn;
       });
-  },
+  }
 });
 
 export const authSlice = slice.reducer;
