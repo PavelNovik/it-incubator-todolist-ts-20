@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { appActions } from "app/app.reducer";
-import { todolistsThunks } from "features/TodolistsList/model/todolists.reducer";
+import { todolistsThunks } from "features/TodolistsList/model/todolists/todolists.reducer";
 import { createAppAsyncThunk, handleServerAppError, thunkTryCatch } from "common/utils";
 import { ResultCode, TaskPriorities, TaskStatuses } from "common/enums";
 import { clearTasksAndTodolists } from "common/actions";
+import { taskApi } from "features/TodolistsList/api/task/task.api";
 import {
   AddTaskArgType,
   RemoveTaskArgType,
-  taskApi,
   TaskType,
   UpdateTaskArgType,
   UpdateTaskModelType
-} from "../api/task.api";
+} from "features/TodolistsList/api/task/task.api.types";
 
 const fetchTasks = createAppAsyncThunk<{ tasks: TaskType[]; todolistId: string }, string>(
   "tasks/fetchTasks",
