@@ -17,7 +17,9 @@ export const AddItemForm = React.memo(function({ addItem, disabled = false }: Pr
       addItem(title).then((res: any) => {
         setTitle("");
       }).catch((error: BaseResponseType) => {
-        setError(error.messages[0]);
+        if (error?.resultCode) {
+          setError(error.messages[0]);
+        }
       });
 
     } else {
